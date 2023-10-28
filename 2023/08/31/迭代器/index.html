@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="迭代器(iterator)功能: 访问容器对象的元素所有标准库容器都可以使用迭代器，其中只有少数几种(vector)才同时支持下标运算符。 string对象不属于容器类型，但是string支持很多与容器类型类似的操作。 迭代器分为有效和无效，这点和指针差不多有效迭代器：指向某个元素，或者指向容器尾元素的下一个位置。 无效迭代器：除有效迭代器之外的其他所有情况。 迭代器的使用迭代器不使用取地址符(与">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://styvenh.github.io/2023/08/31/%E8%BF%AD%E4%BB%A3%E5%99%A8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="迭代器(iterator)功能: 访问容器对象的元素所有标准库容器都可以使用迭代器，其中只有少数几种(vector)才同时支持下标运算符。 string对象不属于容器类型，但是string支持很多与容器类型类似的操作。 迭代器分为有效和无效，这点和指针差不多有效迭代器：指向某个元素，或者指向容器尾元素的下一个位置。 无效迭代器：除有效迭代器之外的其他所有情况。 迭代器的使用迭代器不使用取地址符(与">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://styvenh.github.io/QQ%E6%88%AA%E5%9B%BE20230831214915.png">
+<meta property="og:image" content="https://styvenh.github.io/v2-2febeb715c3b18ecc615b88522172d48_r.jpg">
+<meta property="article:published_time" content="2023-08-31T13:52:15.370Z">
+<meta property="article:modified_time" content="2023-09-02T04:49:24.519Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://styvenh.github.io/QQ%E6%88%AA%E5%9B%BE20230831214915.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://styvenh.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-迭代器" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/08/31/%E8%BF%AD%E4%BB%A3%E5%99%A8/" class="article-date">
+  <time class="dt-published" datetime="2023-08-31T13:52:15.370Z" itemprop="datePublished">2023-08-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="迭代器-iterator"><a href="#迭代器-iterator" class="headerlink" title="迭代器(iterator)"></a>迭代器(iterator)</h1><h2 id="功能-访问容器对象的元素"><a href="#功能-访问容器对象的元素" class="headerlink" title="功能: 访问容器对象的元素"></a>功能: 访问容器对象的元素</h2><p>所有标准库容器都可以使用迭代器，其中只有少数几种(vector)才同时支持下标运算符。</p>
+<p>string对象不属于容器类型，但是string支持很多与容器类型类似的操作。</p>
+<h2 id="迭代器分为有效和无效，这点和指针差不多"><a href="#迭代器分为有效和无效，这点和指针差不多" class="headerlink" title="迭代器分为有效和无效，这点和指针差不多"></a>迭代器分为有效和无效，这点和指针差不多</h2><p>有效迭代器：指向某个元素，或者指向容器尾元素的下一个位置。</p>
+<p>无效迭代器：除有效迭代器之外的其他所有情况。</p>
+<h2 id="迭代器的使用"><a href="#迭代器的使用" class="headerlink" title="迭代器的使用"></a>迭代器的使用</h2><p>迭代器不使用取地址符(与指针区分开)，有迭代器的类型同时拥有返回迭代器的成员，比如begin和end成员。</p>
+<p><strong>begin成员：负责返回指向第一个元素(或字符)的迭代器<br>end成员：负责返回指向容器(或string对象)”尾元素的下一个位置(one past the end)”的迭代器。<br>即：该迭代器指示的是容器的一个本不存在的”尾后(off the end)”元素。所以又名：尾(后)迭代器</strong><br>如果容器为空，则begin和end返回相同，都是尾后迭代器。</p>
+<p><img src="/QQ%E6%88%AA%E5%9B%BE20230831214915.png" alt="Alt text"></p>
+<pre><code>因为end返回的迭代器并不实际指示某个元素，所以不能对其进行递增或解引用的操作。
+C++定义了箭头运算符(-&gt;)，把解引用和成员访问两个操作结合在一起。即it-&gt;mem和(*it).mem表达的意思相同[2]。
+</code></pre>
+<h2 id="迭代器类型"><a href="#迭代器类型" class="headerlink" title="迭代器类型"></a>迭代器类型</h2><p>无需知道迭代器的精准类型(像string一样)</p>
+<p>拥有迭代器的标准库类型使用iterator和const_iterator来表示迭代器类型：</p>
+<ul>
+<li>const_iterator：类似常量指针，只读，不能修改所指元素值</li>
+<li>iterator：对其所指元素可读可写</li>
+</ul>
+<p>如果对象是常量，只能用const_iterator，否则都能用</p>
+<p>begin和end运算符返回的具体类型，由对象是否是常量决定。若是，则返回const_iterator，否则返回iterator。</p>
+<p><img src="/v2-2febeb715c3b18ecc615b88522172d48_r.jpg" alt="Alt text"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://styvenh.github.io/2023/08/31/%E8%BF%AD%E4%BB%A3%E5%99%A8/" data-id="clo9s5a890003h0ashm800qen" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/10/13/%E5%8F%98%E8%BF%9B%E5%88%B6%E6%95%B0(%E7%81%AB%E6%98%9F%E4%BA%BA)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/08/25/%E6%B1%82%E5%85%88%E5%BA%8F%E6%8E%92%E5%BA%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/10/28/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2023/10/13/%E5%8F%98%E8%BF%9B%E5%88%B6%E6%95%B0(%E7%81%AB%E6%98%9F%E4%BA%BA)/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/08/31/%E8%BF%AD%E4%BB%A3%E5%99%A8/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/08/25/%E6%B1%82%E5%85%88%E5%BA%8F%E6%8E%92%E5%BA%8F/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/08/25/%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%E5%92%8C%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
