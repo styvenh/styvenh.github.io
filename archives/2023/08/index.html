@@ -6,22 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/styvenh/styvenh.github.io">
-  <title>Hexo</title>
+  <title>Archives: 2023/8 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="迭代器(iterator)功能: 访问容器对象的元素所有标准库容器都可以使用迭代器，其中只有少数几种(vector)才同时支持下标运算符。 string对象不属于容器类型，但是string支持很多与容器类型类似的操作。 迭代器分为有效和无效，这点和指针差不多有效迭代器：指向某个元素，或者指向容器尾元素的下一个位置。 无效迭代器：除有效迭代器之外的其他所有情况。 迭代器的使用迭代器不使用取地址符(与">
-<meta property="og:type" content="website">
+  <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://github.com/styvenh/styvenh.github.io/%E8%BF%AD%E4%BB%A3%E5%99%A8.html">
+<meta property="og:url" content="https://github.com/styvenh/styvenh.github.io/archives/2023/08/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="迭代器(iterator)功能: 访问容器对象的元素所有标准库容器都可以使用迭代器，其中只有少数几种(vector)才同时支持下标运算符。 string对象不属于容器类型，但是string支持很多与容器类型类似的操作。 迭代器分为有效和无效，这点和指针差不多有效迭代器：指向某个元素，或者指向容器尾元素的下一个位置。 无效迭代器：除有效迭代器之外的其他所有情况。 迭代器的使用迭代器不使用取地址符(与">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://github.com/QQ%E6%88%AA%E5%9B%BE20230831214915.png">
-<meta property="og:image" content="https://github.com/v2-2febeb715c3b18ecc615b88522172d48_r.jpg">
-<meta property="article:published_time" content="2023-10-28T08:26:13.308Z">
-<meta property="article:modified_time" content="2023-09-02T04:49:24.519Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github.com/QQ%E6%88%AA%E5%9B%BE20230831214915.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -157,149 +150,85 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-    <div class="article-entry" itemprop="articleBody">
+    
       
-        <h1 id="迭代器-iterator"><a href="#迭代器-iterator" class="headerlink" title="迭代器(iterator)"></a>迭代器(iterator)</h1><h2 id="功能-访问容器对象的元素"><a href="#功能-访问容器对象的元素" class="headerlink" title="功能: 访问容器对象的元素"></a>功能: 访问容器对象的元素</h2><p>所有标准库容器都可以使用迭代器，其中只有少数几种(vector)才同时支持下标运算符。</p>
-<p>string对象不属于容器类型，但是string支持很多与容器类型类似的操作。</p>
-<h2 id="迭代器分为有效和无效，这点和指针差不多"><a href="#迭代器分为有效和无效，这点和指针差不多" class="headerlink" title="迭代器分为有效和无效，这点和指针差不多"></a>迭代器分为有效和无效，这点和指针差不多</h2><p>有效迭代器：指向某个元素，或者指向容器尾元素的下一个位置。</p>
-<p>无效迭代器：除有效迭代器之外的其他所有情况。</p>
-<h2 id="迭代器的使用"><a href="#迭代器的使用" class="headerlink" title="迭代器的使用"></a>迭代器的使用</h2><p>迭代器不使用取地址符(与指针区分开)，有迭代器的类型同时拥有返回迭代器的成员，比如begin和end成员。</p>
-<p><strong>begin成员：负责返回指向第一个元素(或字符)的迭代器<br>end成员：负责返回指向容器(或string对象)”尾元素的下一个位置(one past the end)”的迭代器。<br>即：该迭代器指示的是容器的一个本不存在的”尾后(off the end)”元素。所以又名：尾(后)迭代器</strong><br>如果容器为空，则begin和end返回相同，都是尾后迭代器。</p>
-<p><img src="/QQ%E6%88%AA%E5%9B%BE20230831214915.png" alt="Alt text"></p>
-<pre><code>因为end返回的迭代器并不实际指示某个元素，所以不能对其进行递增或解引用的操作。
-C++定义了箭头运算符(-&gt;)，把解引用和成员访问两个操作结合在一起。即it-&gt;mem和(*it).mem表达的意思相同[2]。
-</code></pre>
-<h2 id="迭代器类型"><a href="#迭代器类型" class="headerlink" title="迭代器类型"></a>迭代器类型</h2><p>无需知道迭代器的精准类型(像string一样)</p>
-<p>拥有迭代器的标准库类型使用iterator和const_iterator来表示迭代器类型：</p>
-<ul>
-<li>const_iterator：类似常量指针，只读，不能修改所指元素值</li>
-<li>iterator：对其所指元素可读可写</li>
-</ul>
-<p>如果对象是常量，只能用const_iterator，否则都能用</p>
-<p>begin和end运算符返回的具体类型，由对象是否是常量决定。若是，则返回const_iterator，否则返回iterator。</p>
-<p><img src="/v2-2febeb715c3b18ecc615b88522172d48_r.jpg" alt="Alt text"></p>
-
       
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2023" class="archive-year">2023</a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2023/08/31/%E8%BF%AD%E4%BB%A3%E5%99%A8/" class="archive-article-date">
+  	<time datetime="2023-08-31T13:52:15.370Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-31</time>
+</a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
+    	 
+        <div class="article-info info-on-right">
+          
+          
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/styvenh/styvenh.github.io/%E8%BF%AD%E4%BB%A3%E5%99%A8.html" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2023/08/25/%E6%B1%82%E5%85%88%E5%BA%8F%E6%8E%92%E5%BA%8F/" class="archive-article-date">
+  	<time datetime="2023-08-25T11:14:10.642Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-25</time>
+</a>
         </div>
-        
-        
-    </div>
-</aside>
+    	 
+        <div class="article-info info-on-right">
+          
+          
 
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2023/08/25/%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%E5%92%8C%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2023-08-25T10:06:36.544Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-25</time>
+</a>
+        </div>
+    	 
+        <div class="article-info info-on-right">
+          
+          
 
-
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
   
   
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -323,7 +252,7 @@ C++定义了箭头运算符(-&gt;)，把解引用和成员访问两个操作结�
 		mathjax: false,
 		isHome: false,
 		isPost: false,
-		isArchive: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
